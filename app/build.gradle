@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion = '29.0.3'
+
+    defaultConfig {
+        applicationId "org.sankul.watchdog"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 103
+        versionName '1.3d'
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+//            myconfig {
+//                keyAlias 'xxx'
+//                keyPassword 'xxx'
+//                storeFile file('xxx')
+//                storePassword 'xxx'
+//            }
+//
+        def ks = 'xxx'
+        def kspw = 'xxx'
+        def kalias = 'xxx'
+        def kpw = 'xxx'
+        //       def ks = System.getenv("ANDROID_KEYSTORE")
+        //       def kspw = System.getenv("ANDROID_KEYPASS")
+        //       def kalias = System.getenv("ANDROID_KEYALIAS")
+        //       def kpw = System.getenv("ANDROID_KEYPASS")
+        if (ks != null && ksp != null && kalias != null && kpwd != null) {
+            println("adding signing config ${jks}")
+            config {
+                storeFile file(ks)
+                storePassword kspw
+                keyAlias kalias
+                keyPassword kpw
+            }
+        } else {
+            logger.warn("no signing config set...")
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.13'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation files('libs/org.eclipse.paho.android.service-1.1.1.jar')
+    implementation files('libs/org.eclipse.paho.client.mqttv3-1.1.1.jar')
+
+}
