@@ -32,7 +32,11 @@ public class MqSetActivity extends AppCompatActivity {
     private String TAG = "MqSetActivity";
     private PahoMqttClient pahoMqttClient;
     private String clientid = "";
-    private Timer myTimer;
+
+    public PahoMqttClient getPahoMqttClient(){
+        return pahoMqttClient;
+    }
+
     //Callback when bottom navigation item is selected
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -40,7 +44,8 @@ public class MqSetActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             TextView tvMessage = (TextView) findViewById(R.id.subscribedMsg);
-            EditText etSubTopic = (EditText) findViewById(R.id.subTopic);
+            EditText etSubTopicSn = (EditText) findViewById(R.id.subTop2);
+            EditText etSubTopicSw = (EditText) findViewById(R.id.subTopic);
             EditText etPubTopic = (EditText) findViewById(R.id.pubTopic);
             EditText etPubMsg = (EditText) findViewById(R.id.pubMsg);
             EditText etBroker = (EditText) findViewById(R.id.urlBroker);
@@ -86,11 +91,23 @@ public class MqSetActivity extends AppCompatActivity {
                         tvMessage.append(msg_new);
                         return true;
                     }
-                    String topic = etSubTopic.getText().toString().trim();
-                    if (!topic.isEmpty()) {
+                    String topicSn = etSubTopicSn.getText().toString().trim();
+                    if (!topicSn.isEmpty()) {
                         try {
-                            pahoMqttClient.subscribe(client, topic, 1);
-                            msg_new = "Added subscription topic: " + etSubTopic.getText() + "\r\n";
+                            pahoMqttClient.subscribe(client, topicSn, 1);
+                            msg_new = "Added Sensor subscription topic: " + etSubTopicSn.getText() + "\r\n";
+                            tvMessage.append(msg_new);
+
+                        } catch (MqttException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    String topicSw = etSubTopicSw.getText().toString().trim();
+                    if (!topicSw.isEmpty()) {
+                        try {
+                            pahoMqttClient.subscribe(client, topicSw, 1);
+                            msg_new = "Added Switch Sub topic: " + etSubTopicSw.getText() + "\r\n";
                             tvMessage.append(msg_new);
 
                         } catch (MqttException e) {
@@ -191,7 +208,7 @@ public class MqSetActivity extends AppCompatActivity {
         mqttCallback();
 
         //Create Timer to report MQTT connection status every 1 second
-        myTimer = new Timer();
+        Timer myTimer = new Timer();
         myTimer.schedule(new TimerTask() {
             @Override
             public void run() {

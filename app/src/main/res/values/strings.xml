@@ -42,6 +42,7 @@
     <string name="publish_topic">Publish Topic</string>
     <string name="enter_topic1">Enter Topic</string>
     <string name="subscribe_topic">Subscribe Topic</string>
+    <string name="subscribe_topic2">Subscribe Topic 2</string>
     <string name="enter_password">Enter Password</string>
     <string name="mqtt_client_pw">Mqtt Client PW</string>
     <string name="enter_user_name">Enter User Name</string>
@@ -49,4 +50,8 @@
     <string name="tcp_io_adafruit_com_1883">tcp://io.adafruit.com:1883</string>
     <string name="mqtt_broker">Mqtt Broker</string>
     <string name="connect_status">Connect status</string>
+
+    <string name="switch_is_off">Switch is OFF</string>
+    <string name="switch_is_on">Switch is ON</string>
+
 </resources>

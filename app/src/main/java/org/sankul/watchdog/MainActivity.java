@@ -38,15 +38,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ActionBar actionBar = getSupportActionBar();                                            // Add Icon to title bar
+        ActionBar actionBar = getSupportActionBar();                        // Add Icon to title bar
         Objects.requireNonNull(actionBar).setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.ic_app_launcher);
 
 
-
-
-
-
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Find the View that shows the Bonjour category
         TextView bonjour = (TextView) findViewById(R.id.bonjour);
 
@@ -63,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Find the View that shows the mqtt category
         TextView mqtt = (TextView) findViewById(R.id.mqtt);
 
@@ -79,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // Find the View that shows the numbers category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(numbersIntent);
             }
         });
-
     }   // end of void onCreate()
 }   // end of class MainActivity
 

@@ -127,7 +127,7 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_user_name"
-                android:text=""
+                android:text="kamat"
                 android:textStyle="normal" />
         </TableRow>
 
@@ -156,8 +156,37 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_password"
-                android:text=""
+                android:text="3852e82e3f884357b9bd3337c254c138"
                 android:textStyle="normal"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_column="0"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:text="@string/subscribe_topic2"
+                android:textStyle="bold" />
+            <EditText
+                android:id="@+id/subTop2"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:layout_margin="1dp"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:hint="@string/enter_topic"
+                android:text="kamat/f/snst"
+                android:textStyle="normal" />
         </TableRow>
 
         <TableRow
@@ -185,9 +214,9 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_topic"
+                android:text="kamat/f/swst"
                 android:textStyle="normal" />
         </TableRow>
-
 
         <TableRow
             android:layout_width="match_parent"
@@ -213,6 +242,7 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_topic"
+                android:text="kamat/f/swcn"
                 android:textStyle="normal" />
         </TableRow>
 
@@ -240,6 +270,7 @@
                 android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:hint="@string/enter_message"
+                android:text="0"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 android:singleLine="false"
